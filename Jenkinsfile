@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "docker build -t sreenu728/carservice:latest ."
+                        sh "docker build -t sreenu728/cartservice:latest ."
                     }
                 }
             }
