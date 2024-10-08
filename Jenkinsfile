@@ -5,8 +5,10 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "docker build -t sreenu728/cartservice:latest ."
+                    dir('src'){
+                        withDockerRegistry(credentialsId: 'docker-cred') {
+                            sh "docker build -t sreenu728/cartservice:latest ."
+                        }
                     }
                 }
             }
