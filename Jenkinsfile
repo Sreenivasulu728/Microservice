@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-cred') {
                         sh "docker build -t sreeenu/adservice:latest ."
                     }
                 }
@@ -15,8 +15,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push sreeenu/adservice:latest "
+                     withDockerRegistry(credentialsId: 'docker-cred') {
+                        sh "docker push sreeenu/adservice:latest"
                     }
                 }
             }
